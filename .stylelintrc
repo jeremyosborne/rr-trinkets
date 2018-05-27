@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "color-hex-case": "lower",
+    "color-no-invalid-hex": true,
+    "indentation": 2,
+    "number-leading-zero": "always",
+    "unit-whitelist": ["%", "em", "px", "rem"]
+  }
+}
