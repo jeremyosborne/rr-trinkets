@@ -1,9 +1,10 @@
+
 // Actions
 //
 // Add a new notification to the end of the notification queue.
-const ENQUEUE = 'rrnotify/ENQUEUE';
+export const ENQUEUE = 'rrnotify/ENQUEUE'
 // Pop a notification from the head of the queue.
-const DEQUEUE = 'rrnotify/DEQUEUE';
+export const DEQUEUE = 'rrnotify/DEQUEUE'
 
 export default function reducer (state = [], action = {}) {
   switch (action.type) {
@@ -13,7 +14,7 @@ export default function reducer (state = [], action = {}) {
       state.shift()
       return [...state]
     default:
-      return state;
+      return state
   }
 }
 
