@@ -17,3 +17,4 @@ bower_components
 public/*.*
 !public/.gitkeep
 !public/favicon.ico
+dist

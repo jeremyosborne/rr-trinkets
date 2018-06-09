@@ -2,14 +2,15 @@
   "name": "rrnotify",
   "version": "0.0.1",
   "description": "Good enough notifications for react-redux apps.",
-  "main": "duck/index.js",
+  "main": "dist/duck/index.js",
   "scripts": {
-    "postinstall": "`# Install package for sample component` cd Notifier && npm install",
+    "build": "`# Building commonjs modules and placing in dist:`rimraf dist && mkdirp dist/duck && babel duck -d dist/duck && mkdirp Notifier && babel Notifier --ignore Notifier/node_modules -d dist/Notifier",
+    "postinstall": "`# Install package for sample component if you want to with: cd Notifier && npm install`",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type" : "git",
-    "url" : "git@github.com:jeremyosborne/rrnotify.git"
+    "type": "git",
+    "url": "git@github.com:jeremyosborne/rrnotify.git"
   },
   "keywords": [
     "react",
@@ -22,10 +23,11 @@
     "reselect": ">=3.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.49",
-    "@babel/preset-env": "^7.0.0-beta.49",
-    "babel-core": "^6.26.3",
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-config-standard-react": "^6.0.0",
@@ -34,7 +36,10 @@
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-standard": "^3.1.0",
+    "mkdirp": "^0.5.1",
+    "react": "^16.4.0",
     "reselect": "^3.0.1",
+    "rimraf": "^2.6.2",
     "stylelint": "^9.2.1"
   }
 }
