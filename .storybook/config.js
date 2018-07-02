@@ -1,7 +1,7 @@
 import { configure } from '@storybook/react';
 
 function loadStories() {
-  require('../stories.js');
+  require('../Notifier/stories.js');
 }
 
 configure(loadStories, module);
