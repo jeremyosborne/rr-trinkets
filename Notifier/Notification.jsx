@@ -1,19 +1,24 @@
-import React from 'react'
+import classNamesBinder from 'classnames/bind'
+import {get} from 'lodash'
 import PropTypes from 'prop-types'
+import React from 'react'
 
-import './Notification.css'
+import styles from './Notification.css'
+
+const cx = classNamesBinder.bind(styles)
 
 export const Notification = (props) => {
+  const {notification} = props
   return (
-    <div className='rrnotify-notification'>
-      <div className='rrnotify-notification-message'>{props.notification}</div>
-      <button className='rrnotify-notification-close' onClick={props.onClose}>Close</button>
+    <div className={cx('notification', get(notification, 'type', 'info'))}>
+      <div className={styles.message}>{ get(notification, 'message') }</div>
+      <button className={styles.close} onClick={props.onClose}>Close</button>
     </div>
   )
 }
 
 Notification.propTypes = {
-  notification: PropTypes.node,
+  notification: PropTypes.object,
   onClose: PropTypes.func.isRequired,
 }
 

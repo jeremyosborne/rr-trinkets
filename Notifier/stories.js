@@ -1,21 +1,19 @@
-import * as rrnotify from '../duck'
+import {rrnotify, Notifier, notify} from '../'
 import React from 'react'
 import {Provider} from 'react-redux'
 import {combineReducers, createStore} from 'redux'
 import {storiesOf} from '@storybook/react'
-import {action} from '@storybook/addon-actions'
-import Notification from './Notification.jsx'
-import Notifier from './Notifier.jsx'
 
 const store = createStore(combineReducers({[rrnotify.REDUCER_KEY]: rrnotify.reducer}))
-store.dispatch(rrnotify.notify('An error of type 1 has occurred.'))
-store.dispatch(rrnotify.notify('An error of type 2 has occurred.'))
-store.dispatch(rrnotify.notify('An error of type 3 has occurred.'))
+store.dispatch(notify("We've updated our privacy policy."))
+store.dispatch(notify({message: "Did you know, we've updated our privacy policy?"}))
+store.dispatch(notify(new Error('Uh oh, we updated our privacy policy')))
+store.dispatch(notify({message: 'You really should care about your privacy.', type: 'error'}))
+store.dispatch(notify((
+  <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ' target='_blank' rel='noopener noreferrer'>Updated: Our Privacy Policy. Read now!</a>
+)))
 
 storiesOf('Notification & Notifier', module)
-  .add('Notification', () => (
-    <Notification notification='You have an error of type 2509.' onClose={action('clicked')} />
-  ))
   .add('Notifier', () => (
     <Provider store={store}>
       <Notifier />

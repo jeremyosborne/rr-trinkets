@@ -1,3 +1,5 @@
+import autoprefixer from 'autoprefixer'
+import precss from 'precss'
 import {plugin as analyze} from 'rollup-plugin-analyzer'
 import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
@@ -49,7 +51,10 @@ export default [
       // This needs to go before babel.
       postcss({
         modules: true,
-        plugins: [],
+        plugins: [
+          autoprefixer(),
+          precss(),
+        ],
       }),
       babel({
         exclude: 'node_modules/**' // only transpile our source code

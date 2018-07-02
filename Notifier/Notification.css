@@ -1,8 +1,7 @@
-.rrnotify-notification {
+.notification {
   align-items: center;
   box-sizing: border-box;
 
-  background-color: #e6d963;
   display: flex;
   justify-content: space-around;
   padding: 1em;
@@ -11,21 +10,31 @@
   top: 1em;
   left: 3em;
   right: 3em;
+
+  /* Styling for specific notification types. */
+  &.info {
+    background-color: #e6d963;
+    color: black;
+  }
+  &.error {
+    background-color: #c51162;
+    color: white;
+  }
 }
 
 @media (max-width: 768px) {
-  .rrnotify-notification {
+  .notification {
     top: 0;
     left: 0;
     right: 0;
   }
 }
 
-.rrnotify-notification-message {
+.message {
   width: 80%;
 }
 
-.rrnotify-notification-close {
+.close {
   /* Button reset */
   border: none;
   margin: 0;
@@ -53,4 +62,8 @@
   padding: 0.3em;
   text-transform: uppercase;
   max-width: 20%;
+
+  .error & {
+    color: white;
+  }
 }

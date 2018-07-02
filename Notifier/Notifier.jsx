@@ -8,13 +8,17 @@ import {selectors, dequeue} from '../duck'
 
 export class Notifier extends React.Component {
   static propTypes = {
-    notification: PropTypes.node,
-    onClose: PropTypes.func,
+    notification: PropTypes.shape({
+      /** Visual portion of notification. */
+      message: PropTypes.node.isRequired,
+      /** Info is default. */
+      type: PropTypes.oneOf(['error', 'info']),
+    }),
+    onClose: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
-    notification: '',
-    onClose: () => {},
+    notification: null,
   }
 
   render () {
@@ -29,7 +33,6 @@ export class Notifier extends React.Component {
 
 const mapStateToProps = (state) => {
   const notifications = selectors(state)
-  console.log(notifications)
   return {
     notification: notifications.head,
   }
