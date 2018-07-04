@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {compose} from 'redux'
 import PropTypes from 'prop-types'
 
-import {selectors, dequeue} from '../duck'
+import {selectors, remove} from '../duck'
 
 export class Notifier extends React.Component {
   static propTypes = {
@@ -39,7 +39,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  onClose: dequeue,
+  onClose: remove,
 }
 
 export default compose(

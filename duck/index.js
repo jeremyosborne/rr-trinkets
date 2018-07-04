@@ -9,19 +9,23 @@ export {
 
 export function reducer (state = DEFAULT_STATE, action = {}) {
   switch (action.type) {
-    case ENQUEUE:
-      return state.concat(action.payload)
     case DEQUEUE:
       return state.slice(1)
+    case ENQUEUE:
+      return state.concat(action.payload)
+    case REMOVE:
+      return state.filter((notification) => notification !== action.payload)
     default:
       return state
   }
 }
 export default reducer
 
-// Add a new notification to the end of the notification queue.
+/**
+ * Add a new notification to the end of the notification queue.
+ * See: notify
+ */
 export const ENQUEUE = 'rrnotify/ENQUEUE'
-// See docs for notify, which is our main public entry point.
 export function enqueue (payload) {
   if (payload instanceof Error) {
     // Basic JavaScript errors roughly conform to our needs.
@@ -47,10 +51,10 @@ export function enqueue (payload) {
 }
 
 /**
- * Add a notification to the queue of notifications.
+ * Add a notification to the end of the queue of notifications.
  *
  * While the action is forgiving, the payload is a general notification object
- * and is assumed tp be shaped as:
+ * and is assumed to be shaped as:
  *
  * {
  *    message: {React.Node|String} passed through to the UI.,
@@ -66,7 +70,21 @@ export function enqueue (payload) {
  */
 export const notify = enqueue
 
-// Pop a notification from the head of the queue.
+/**
+ * Remove a specific item from the queue, wherever that item might be.
+ *
+ * @return {Object} Flux Standard Action
+ */
+export const REMOVE = 'rrnotify/REMOVE'
+export function remove (payload) {
+  return {type: REMOVE, payload}
+}
+
+/**
+ * Remove the item from the head of the queue.
+ *
+ * @return Flux standard Action
+ */
 export const DEQUEUE = 'rrnotify/DEQUEUE'
 export function dequeue (payload) {
   return {type: DEQUEUE}

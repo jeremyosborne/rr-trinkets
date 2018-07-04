@@ -12,7 +12,7 @@ export const Notification = (props) => {
   return (
     <div className={cx('notification', get(notification, 'type', 'info'))}>
       <div className={styles.message}>{ get(notification, 'message') }</div>
-      <button className={styles.close} onClick={props.onClose}>Close</button>
+      <button className={styles.close} onClick={() => props.onClose(notification)}>Close</button>
     </div>
   )
 }
