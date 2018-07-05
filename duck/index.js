@@ -15,6 +15,8 @@ export function reducer (state = DEFAULT_STATE, action = {}) {
       return state.concat(action.payload)
     case REMOVE:
       return state.filter((notification) => notification !== action.payload)
+    case RESET:
+      return DEFAULT_STATE
     default:
       return state
   }
@@ -88,4 +90,14 @@ export function remove (payload) {
 export const DEQUEUE = 'rrnotify/DEQUEUE'
 export function dequeue (payload) {
   return {type: DEQUEUE}
+}
+
+/**
+ * Clear the store.
+ *
+ * @return Flux Standard Action
+ */
+export const RESET = 'rrnotify/RESET'
+export function reset (payload) {
+  return {type: RESET}
 }

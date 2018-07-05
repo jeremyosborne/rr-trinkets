@@ -1,7 +1,7 @@
 import {createSelector, createStructuredSelector} from 'reselect'
 import {REDUCER_KEY} from './constants'
 
-const queue = (state) => state[REDUCER_KEY] || []
+const queue = (state = {}) => state[REDUCER_KEY] || []
 
 // Total number of messages.
 export const count = createSelector(
