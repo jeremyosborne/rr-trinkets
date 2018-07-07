@@ -1,19 +1,19 @@
 //
-// Usage documentation for working with rrnotify.
+// Usage documentation for working with rrNotify.
 //
 
-// Import the notify parts you need.
-import {rrnotify, Notifier, notify} from './'
 import React from 'react'
 import {Provider} from 'react-redux'
 import {combineReducers, createStore} from 'redux'
 import {storiesOf} from '@storybook/react'
 
-// Hook rrnotify into your store.
-// You'll want to make use of the REDUCER_KEY, which by default is `rrnotify`,
+import {rrNotify, Notifier, notify} from '../'
+
+// Hook rrNotify into your store.
+// You'll want to make use of the REDUCER_KEY, which by default is `rrNotify`,
 // as the selectors depend on it.
 const store = createStore(combineReducers({
-  [rrnotify.REDUCER_KEY]: rrnotify.reducer
+  [rrNotify.REDUCER_KEY]: rrNotify.reducer
 }))
 // You'll probably `connect(...)` the notify method, but for sake of example, we
 // explicitly dispatch some notifications to populate the queue: first in, first out.

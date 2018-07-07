@@ -1,11 +1,12 @@
 {
-  "name": "rrnotify",
+  "name": "rr-trinkets",
   "version": "0.0.1",
-  "description": "Good enough notifications for react-redux apps.",
+  "description": "Small things for react-redux apps",
   "main": "index.js",
   "scripts": {
-    "build": "`# Build our code for publishing` rollup -c && copy package.json dist",
+    "build": "`# Build our code for publishing` rimraf dist && rollup -c && copy package.json dist",
     "storybook": "`# Sample component integration` start-storybook -p 9001 -c .storybook",
+    "start": "`# Run storybook until we get a more start appropriate script` npm run storybook",
     "test": "jest --config .jest.config.js"
   },
   "repository": {

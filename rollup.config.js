@@ -14,13 +14,13 @@ import postcss from 'rollup-plugin-postcss'
 //
 // Rubber Duck: an object exported is one build, an array exported is Array.length builds.
 export default [
-  // For those that want just the redux module.
+  // Individual module.
   {
-    input: 'duck/index.js',
+    input: 'src/rr-notify/index.js',
     output: {
-      dir: 'dist',
+      dir: 'dist/',
       exports: 'named',
-      file: 'duck.js',
+      file: 'rr-notify.js',
       format: 'cjs',
     },
     plugins: [
@@ -28,15 +28,22 @@ export default [
       autoExternal(),
       resolve(),
       commonjs(),
+      // This needs to go before babel.
+      postcss({
+        modules: true,
+        plugins: [
+          autoprefixer(),
+          precss(),
+        ],
+      }),
       babel({
         exclude: 'node_modules/**' // only transpile our source code
       }),
     ],
   },
-  // For those that want the full build. I'll assume that even I will want the
-  // full build because I'm intentionally lazy.
+  // Kitchen sink module.
   {
-    input: 'index.js',
+    input: 'src/index.js',
     output: {
       dir: 'dist',
       exports: 'named',

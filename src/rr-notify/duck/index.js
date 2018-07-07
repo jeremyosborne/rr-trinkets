@@ -27,7 +27,7 @@ export default reducer
  * Add a new notification to the end of the notification queue.
  * See: notify
  */
-export const ENQUEUE = 'rrnotify/ENQUEUE'
+export const ENQUEUE = 'rr-notify/ENQUEUE'
 export function enqueue (payload) {
   if (payload instanceof Error) {
     // Basic JavaScript errors roughly conform to our needs.
@@ -77,7 +77,7 @@ export const notify = enqueue
  *
  * @return {Object} Flux Standard Action
  */
-export const REMOVE = 'rrnotify/REMOVE'
+export const REMOVE = 'rr-notify/REMOVE'
 export function remove (payload) {
   return {type: REMOVE, payload}
 }
@@ -87,7 +87,7 @@ export function remove (payload) {
  *
  * @return Flux standard Action
  */
-export const DEQUEUE = 'rrnotify/DEQUEUE'
+export const DEQUEUE = 'rr-notify/DEQUEUE'
 export function dequeue (payload) {
   return {type: DEQUEUE}
 }
@@ -97,7 +97,7 @@ export function dequeue (payload) {
  *
  * @return Flux Standard Action
  */
-export const RESET = 'rrnotify/RESET'
+export const RESET = 'rr-notify/RESET'
 export function reset (payload) {
   return {type: RESET}
 }
