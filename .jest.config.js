@@ -3,4 +3,8 @@ module.exports = {
   coverageDirectory: 'coverage',
   coverageReporters: ["text"],
   verbose: true,
+  testPathIgnorePatterns: [
+    "/node_modules/",
+    "<rootDir>/dist/"
+  ]
 }
