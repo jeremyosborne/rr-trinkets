@@ -7,7 +7,7 @@ import {Provider} from 'react-redux'
 import {combineReducers, createStore} from 'redux'
 import {storiesOf} from '@storybook/react'
 
-import {rrNotify, Notifier, notify} from '../'
+import {rrNotify, Notifier, notify} from './'
 
 // Hook rrNotify into your store.
 // You'll want to make use of the REDUCER_KEY, which by default is `rrNotify`,

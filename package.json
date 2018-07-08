@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "`# Build our code for publishing` rimraf dist && rollup -c && copy package.json dist",
-    "storybook": "`# Sample component integration` start-storybook -p 9001 -c .storybook",
-    "start": "`# Run storybook until we get a more start appropriate script` npm run storybook",
+    "storybook": "`# Sample code usage` start-storybook -p 9001 -c .storybook",
+    "start": "`# Run storybook until we get a more start appropriate start script` npm run storybook",
     "test": "jest --config .jest.config.js"
   },
   "repository": {

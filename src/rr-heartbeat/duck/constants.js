@@ -2,7 +2,7 @@
 export const REDUCER_KEY = 'rr-heartbeat'
 
 export const DEFAULT_STATE = {
-  // Total heartbeat events we have sent.
+  // Total heartbeat events we have sent ever.
   count: 0,
   // {Number} ms delay between heartbeats.
   period: 1000,
@@ -10,6 +10,8 @@ export const DEFAULT_STATE = {
   running: false,
 
   // --- Timing info
+  // {Number} Count for this particular start-stop cycle
+  countCurrent: 0,
   // {Number} Time in ms-since-epoch of our most recent heartbeat dispatched action.
   beat: -Infinity,
   // {Number} Time in ms-since-epoch of our most recent dispatched start action.
