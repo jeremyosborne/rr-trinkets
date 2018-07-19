@@ -1,7 +1,7 @@
-## A generic notification system for react-redux apps
+## Redux (+ React) Trinkets
 
-Simple React <-> Redux notification system.
+Small snippets of redux code, with some React thrown in.
 
-This module adheres to [redux duck](https://github.com/erikras/ducks-modular-redux), with some ++.
-
-Please see the [stories](./stories.js) file for code-as-documentation. To see the code in action, run `npm start storybook`.
+* [rr-heartbeat](./rr-heartbeat)
+* [rr-notify](./rr-notify)
+* [rr-scorekeeper](./rr-scorekeeper)
