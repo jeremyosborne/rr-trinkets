@@ -1,6 +1,6 @@
-## Notification system
+## Scoring / counting
 
-Simple React <-> Redux module geared towards queueing up messages to be displayed to some user whom we assue might need to know about the information in the messages.
+Simple React <-> Redux module geared towards keeping a tally of counts, maybe for a game, achievement system, or whatever your logical heart desires.
 
 This module follows the spirit of [redux duck](https://github.com/erikras/ducks-modular-redux), with some ++.
 

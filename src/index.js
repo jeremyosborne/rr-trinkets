@@ -4,6 +4,8 @@
 
 import * as rrHeartbeat from './rr-heartbeat'
 import * as rrNotify from './rr-notify'
+import * as rrScorekeeper from './rr-scorekeeper'
 
 export {rrHeartbeat}
 export {rrNotify}
+export {rrScorekeeper}

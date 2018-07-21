@@ -1,6 +1,6 @@
-## Notification system
+## Application artificial pulse
 
-Simple React <-> Redux module geared towards queueing up messages to be displayed to some user whom we assue might need to know about the information in the messages.
+Simple React <-> Redux module for triggering a regular heartbeat event, assumed used as a basis for short polling, regular events or actions, or whatever else you might want a global timer for.
 
 This module follows the spirit of [redux duck](https://github.com/erikras/ducks-modular-redux), with some ++.
 
