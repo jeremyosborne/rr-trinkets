@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "`# Build our code for publishing` rimraf dist && rollup -c && copy package.json dist",
+    "lint": "eslint",
     "storybook": "`# Sample code usage` start-storybook -p 9001 -c .storybook",
     "start": "`# Run storybook until we get a more start appropriate start script` npm run storybook",
     "test": "jest --config .jest.config.js src"
@@ -50,6 +51,7 @@
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-standard": "^3.1.0",
+    "husky": "^1.0.0-rc.13",
     "jest": "^23.3.0",
     "mkdirp": "^0.5.1",
     "postcss-modules": "^1.1.0",
@@ -70,5 +72,10 @@
     "rollup-plugin-node-resolve": "^3.3.0",
     "rollup-plugin-postcss": "^1.6.2",
     "stylelint": "^9.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm test"
+    }
   }
 }

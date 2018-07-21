@@ -7,27 +7,11 @@ export {
   selectors,
 }
 
-export function reducer (state = DEFAULT_STATE, action = {}) {
-  switch (action.type) {
-    case DEQUEUE:
-      return state.slice(1)
-    case ENQUEUE:
-      return state.concat(action.payload)
-    case REMOVE:
-      return state.filter((notification) => notification !== action.payload)
-    case RESET:
-      return DEFAULT_STATE
-    default:
-      return state
-  }
-}
-export default reducer
-
 /**
  * Add a new notification to the end of the notification queue.
  * See: notify
  */
-export const ENQUEUE = 'rr-notify/ENQUEUE'
+export const ENQUEUE = `${REDUCER_KEY}/ENQUEUE`
 export function enqueue (payload) {
   if (payload instanceof Error) {
     // Basic JavaScript errors roughly conform to our needs.
@@ -77,7 +61,7 @@ export const notify = enqueue
  *
  * @return {Object} Flux Standard Action
  */
-export const REMOVE = 'rr-notify/REMOVE'
+export const REMOVE = `${REDUCER_KEY}/REMOVE`
 export function remove (payload) {
   return {type: REMOVE, payload}
 }
@@ -87,7 +71,7 @@ export function remove (payload) {
  *
  * @return Flux standard Action
  */
-export const DEQUEUE = 'rr-notify/DEQUEUE'
+export const DEQUEUE = `${REDUCER_KEY}/DEQUEUE`
 export function dequeue (payload) {
   return {type: DEQUEUE}
 }
@@ -97,7 +81,23 @@ export function dequeue (payload) {
  *
  * @return Flux Standard Action
  */
-export const RESET = 'rr-notify/RESET'
+export const RESET = `${REDUCER_KEY}/RESET`
 export function reset (payload) {
   return {type: RESET}
 }
+
+export function reducer (state = DEFAULT_STATE, action = {}) {
+  switch (action.type) {
+    case DEQUEUE:
+      return state.slice(1)
+    case ENQUEUE:
+      return state.concat(action.payload)
+    case REMOVE:
+      return state.filter((notification) => notification !== action.payload)
+    case RESET:
+      return DEFAULT_STATE
+    default:
+      return state
+  }
+}
+export default reducer

@@ -9,7 +9,7 @@ export {
   selectors,
 }
 
-export const HEARTBEAT = 'rr-heartbeat/HEARTBEAT'
+export const HEARTBEAT = `${REDUCER_KEY}/HEARTBEAT`
 export const heartbeat = () => ({
   type: HEARTBEAT,
   payload: {
@@ -17,7 +17,7 @@ export const heartbeat = () => ({
   },
 })
 
-export const START = 'rr-heartbeat/START'
+export const START = `${REDUCER_KEY}/START`
 export const start = () => ({
   type: START,
   payload: {
@@ -28,7 +28,7 @@ export const start = () => ({
   },
 })
 
-export const STOP = 'rr-heartbeat/STOP'
+export const STOP = `${REDUCER_KEY}/STOP`
 export const stop = () => ({
   type: STOP,
   payload: {
