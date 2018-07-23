@@ -15,10 +15,17 @@ export {
  */
 export const ENQUEUE = `${REDUCER_KEY}/ENQUEUE`
 export function enqueue (payload) {
+  const cloned = {}
+  // Intentionally leaving off the hasOwnProperty check because we want everything
+  // including non-enumerable.
+  for (var k in payload) {
+    // TODO: For the keyqueue implementation, we probably only want a subset copied.
+    cloned[k] = payload[k]
+  }
   return {
     type: ENQUEUE,
     // Need to copy, see: https://reactjs.org/docs/events.html#event-pooling
-    payload: Object.assign({}, payload)
+    payload: cloned,
   }
 }
 
