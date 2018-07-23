@@ -57,7 +57,7 @@ export function enqueue (payload) {
 export const notify = enqueue
 
 /**
- * Remove a specific item from the queue, wherever that item might be.
+ * Remove a specific item, and all references to it, from the queue.
  *
  * @return {Object} Flux Standard Action
  */
@@ -67,7 +67,7 @@ export function remove (payload) {
 }
 
 /**
- * Remove the item from the head of the queue.
+ * Remove one item from the head of the queue.
  *
  * @return Flux standard Action
  */
@@ -77,7 +77,7 @@ export function dequeue (payload) {
 }
 
 /**
- * Clear the store.
+ * Return the queue to the default state.
  *
  * @return Flux Standard Action
  */
