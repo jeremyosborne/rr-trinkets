@@ -14,13 +14,19 @@ import postcss from 'rollup-plugin-postcss'
 //
 // Rubber Duck: an object exported is one build, an array exported is Array.length builds.
 export default [
-  // Individual module.
-  {
-    input: 'src/rr-notify/index.js',
+  // Individual modules.
+  ...[
+    'rr-event-log',
+    'rr-heartbeat',
+    'rr-keyqueue',
+    'rr-notify',
+    'rr-scorekeeper',
+  ].map((mod) => ({
+    input: `src/${mod}/index.js`,
     output: {
       dir: 'dist/',
       exports: 'named',
-      file: 'rr-notify.js',
+      file: `${mod}.js`,
       format: 'cjs',
     },
     plugins: [
@@ -37,10 +43,12 @@ export default [
         ],
       }),
       babel({
-        exclude: 'node_modules/**' // only transpile our source code
+        exclude: 'node_modules/**', // only transpile our source code
+        externalHelpers: true,
+        plugins: ['external-helpers'],
       }),
     ],
-  },
+  })),
   // Kitchen sink module.
   {
     input: 'src/index.js',
@@ -64,7 +72,10 @@ export default [
         ],
       }),
       babel({
-        exclude: 'node_modules/**' // only transpile our source code
+        exclude: 'node_modules/**', // only transpile our source code
+        // Assuming external code will include any necessary polyfills or helpers.
+        externalHelpers: true,
+        plugins: ['external-helpers'],
       }),
     ],
   }
